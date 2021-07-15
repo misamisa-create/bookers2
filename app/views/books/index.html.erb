@@ -1,0 +1,21 @@
+<% @books.each do |book| %>
+<div>
+  <!--ユーザー詳細に飛ぶリンク-->
+  <p>ユーザー画像</p>
+  <!--ここにend-->
+  <%=link_to book_path(book.id) do %>
+    <p><%= book.title %></p>
+  <% end %>
+
+  <p><%= book.opinion %></p>
+</div>
+<% end %>
+
+<h1>New book</h1>
+<%= form_with model:@book,local:true do |f| %>
+  <h3>Title</h3>
+  <%=f.text_field :title %>
+  <h3>Opinion</h3>
+  <%=f.text_area :opinion %>
+  <%=f.submit 'Create Book' %>
+<% end %>
