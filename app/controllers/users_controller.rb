@@ -6,5 +6,6 @@ class UsersController < ApplicationController
     @books=@user.books.page(params[:page]).reverse_order
   end
   def edit
+    # asita 
   end
 end
