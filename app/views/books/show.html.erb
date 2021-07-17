@@ -1,12 +1,46 @@
-<h1>Book detail</h1>
-<div>
-  <p>ユーザー画像</p>
-  <p><%= @book.title %></p>
-  <p><%= @book.opinion %></p>
 
-  <!--以下に編集、削除のリンク-->
-  <% if @book.user == current_user %>
-    <%= link_to "削除",book_path(@book),method: :delete %>
-  <% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <!--新規投稿用画面は_listファイル-->
+    <div class="col-md-3">
+      <%= render'books/list',book:@book %>
+    </div>
 
+    <!--投稿された本一覧画面-->
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover">
+        <thred>
+          <tr>
+            <th></th>
+            <th><strong>Title</strong></th>
+            <th><strong>Opinion</strong></th>
+            <th></th>
+          </tr>
+        </thred>
+
+        <tbody>
+          <tr>
+            <td>
+              <!--ユーザー詳細に飛ぶリンク-->
+              <p>ユーザー画像</p>
+              <!--ここにend-->
+            </td>
+            <td>
+              <%= @book.title %>
+            </td>
+            <td>
+              <%= @book.opinion %>
+            </td>
+            <td>
+              <!--以下に編集、削除のリンク-->
+              <% if @book.user == current_user %>
+                <%= link_to "削除",book_path(@book),method: :delete %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
