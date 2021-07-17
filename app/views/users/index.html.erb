@@ -1,4 +1,3 @@
-
 <div class="container px-5 px-sm-0">
   <div class="row">
     <!--新規投稿用画面は_listファイル-->
@@ -6,41 +5,35 @@
       <%= render'books/list',book:@book %>
     </div>
 
-    <!--投稿された本一覧画面-->
+    <!--投稿したユーザー一覧画面-->
     <div class="col-md-8 offset-md-1">
-      <h2>Book detail</h2>
+      <h2>Users</h2>
       <table class="table table-hover">
         <thred>
           <tr>
-            <th></th>
-            <th><strong>Title</strong></th>
-            <th><strong>Opinion</strong></th>
+            <th><strong>image</strong></th>
+            <th><strong>name</strong></th>
             <th></th>
           </tr>
         </thred>
 
         <tbody>
+          <% @users.each do |user| %>
           <tr>
             <td>
-              <!--ユーザー詳細に飛ぶリンク-->
               <p>ユーザー画像</p>
-              <!--ここにend-->
             </td>
             <td>
-              <%= @show_book.title %>
+              <%= user.name %>
             </td>
             <td>
-              <%= @show_book.opinion %>
+              <%=link_to "Show", user_path(user.id) %>
             </td>
-            <td>
-              <!--以下に編集、削除のリンク-->
-              <% if @show_book.user == current_user %>
-                <%= link_to "削除",book_path(@show_book),method: :delete %>
-              <% end %>
-            </td>
+          <% end %>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+

@@ -6,8 +6,8 @@ class BooksController < ApplicationController
   end
 
   def show
-    @book=Book.find(params[:id])
-    # 遷移先がbooks/idにならないのであとで確認する
+    @show_book=Book.find(params[:id])
+    @book=Book.new
   end
 
   def edit
