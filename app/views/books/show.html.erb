@@ -5,5 +5,8 @@
   <p><%= @book.opinion %></p>
 
   <!--以下に編集、削除のリンク-->
+  <% if @book.user == current_user %>
+    <%= link_to "削除",book_path(@book),method: :delete %>
+  <% end %>
 
 </div>

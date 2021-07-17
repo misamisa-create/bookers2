@@ -18,7 +18,6 @@ class BooksController < ApplicationController
     @book.user_id=current_user.id
     @book.save
     redirect_to book_path(@book.id)
-    # 遷移先がbooks/idにならないのであとで確認する
   end
 
   def destroy

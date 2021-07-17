@@ -1,3 +1,5 @@
+<h1>Users</h1>
+
 <% @books.each do |book| %>
   <div>
     <p>ユーザー画像</p>
@@ -8,3 +10,11 @@
   </div>
 <% end %>
 
+<!--ユーザ詳細画面-->
+<h1>User info</h1>
+<strong>name <%= @user.name %></strong>
+<!--<strong>introduction (edit作ってから)</strong>-->
+
+
+<!--新規投稿用画面は_listファイルへ飛ぶ-->
+<%= render'books/list',book:@book %>
