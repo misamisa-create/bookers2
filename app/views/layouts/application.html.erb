@@ -28,29 +28,62 @@
                   Home
                 </a>
               </li>
-              <!--ここから-->
-              <li></li>
+            <!--一旦ここに作る-->
+              <% if user_signed_in? %>
+              <li>
+                <a class="fas fa-users nav-link text-light" href="/users">
+                  Users
+                </a>
+              </li>
+              <li>
+                <a class="fas fa-book-open nav-link text-light" href="/books">
+                  Books
+                </a>
+              </li>
+              <li>
+                <a class="fas fa-sign-out-alt nav-link text-light" href="/">
+                  <!--ログアウトの機能を実装する-->
+                  logout
+                </a>
+              </li>
+
+              <!--ログアウト% link_to "logout",destroy_user_session_path,method: :delete %-->
+              <!--マイページ%= link_to 'マイページ',user_path(current_user.id) %-->
+            <% else %>
+              <li>
+                <a class="fas fa-link nav-link text-light" href="/home/about">
+                  About
+                </a>
+              </li>
+              <li>
+                <a class="fas fa-user-plus nav-link text-light" href="/users/sign_up">
+                  sign up
+                </a>
+              </li>
+              <li>
+                <a class="fas fa-sign-in-alt nav-link text-light" href="/users/sign_in">
+                  login
+                </a>
+              </li>
             </ul>
+            <% end %>
           </div>
         </div>
       </nav>
     </header>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "logout",destroy_user_session_path,method: :delete %>
-      </li>
-      <li>
-        <%= link_to 'マイページ',user_path(current_user.id) %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "sign Up",new_user_registration_path %>
-      </li>
-      <li>
-        <%=link_to "login",new_user_session_path %>
-      </li>
-    <% end %>
 
     <%= yield %>
+
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
+
+
