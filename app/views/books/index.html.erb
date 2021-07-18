@@ -23,7 +23,7 @@
           <tr>
             <td>
               <!--ユーザー詳細に飛ぶリンク-->
-              <p>ユーザー画像</p>
+              <%= attachment_image_tag @user,:profile_image,:fill,40,40,fallback:"no_image.jpg",size:'40x40' %>
               <!--ここにend-->
             </td>
             <td>

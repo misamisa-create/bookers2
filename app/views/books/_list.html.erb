@@ -1,13 +1,19 @@
-<!--ユーザー詳細をここに入れる-->
-<h2>User info</h2>
-<p>※写真</p>
-<!--pタグはあとで消す-->
-<table class="table">※内容</table>
-<div class="row">※設定へ</div>
+<!--ユーザー詳細-->
+  <h2>User info</h2>
+  
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg",size:'100x100' %><br />
+  <table class="table">※内容</table>
+  <div class="row">
+    <!--ここから直す-->
+    <p>編集画面</p>
+  </div>
+  
+
+<!--新規投稿-->
 <h2 class="mt-3">New Book</h2>
 <%= form_with model:book,local:true do |f| %>
   <div class="form-group">
-    <label for="book-title">Title</label>
+    <label for="book-title">Title</label><br />
     <%=f.text_field :title %>
   </div>
   <div class="form-group">
