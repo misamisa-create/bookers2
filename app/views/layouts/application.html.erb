@@ -4,9 +4,6 @@
     <title>Bookers2</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -17,19 +14,13 @@
         <div class="container">
           <a class="navbar-brand" href="/"><span>Bookers</span></a>
           <!--折りたたみプラグイン-->
-          <button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-          aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <!--中身-->
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
             <ul class="navbar-nav ml-auto">
-
-
               <% if user_signed_in? %>
-
                 <li>
                   <%= link_to user_path(current_user) do %>
                     <i class="fas fa-home nav-link text-light" >
@@ -86,6 +77,7 @@
             <% end %>
           </div>
         </div>
+
       </nav>
     </header>
 
