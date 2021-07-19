@@ -10,33 +10,26 @@
     <div class="col-md-8 offset-md-1">
       <h2>Book detail</h2>
       <table class="table table-hover">
-        <thred>
-          <tr>
-            <th></th>
-            <th><strong>Title</strong></th>
-            <th><strong>Opinion</strong></th>
-            <th></th>
-          </tr>
-        </thred>
-
         <tbody>
           <tr>
             <td>
-              <!--ユーザー詳細に飛ぶリンク-->
-              <%= attachment_image_tag @show_book.user,:profile_image,:fill,40,40,fallback:"no_image.jpg",size:'40x40' %>
-              <!--ここにend-->
+              <%= attachment_image_tag @show_book.user,:profile_image,:fill,100,100,fallback:"no_image.jpg",size:'100x100' %><br />
+              <%=link_to @show_book.user.name,user_path(@show_book.user) %>
             </td>
             <td>
-              <%= @show_book.title %>
+              <%= link_to @show_book.title,book_path(@show_book) %>
             </td>
             <td>
               <%= @show_book.opinion %>
             </td>
             <td>
-              <!--以下に編集、削除のリンク-->
               <% if @show_book.user == current_user %>
+              <td>
                 <%= link_to "Edit",edit_book_path(@show_book),class:'btn btn-sm btn-success' %>
+              </td>
+              <td>
                 <%= link_to "Destroy",book_path(@show_book),method: :delete,class:'btn btn-sm btn-danger' %>
+              </td>
               <% end %>
             </td>
           </tr>

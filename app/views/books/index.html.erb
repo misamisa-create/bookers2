@@ -4,8 +4,8 @@
     <!--新規投稿用画面は_listファイル-->
     <div class="col-md-3">
       <%= render partial:'books/list',locals:{book:@book,user:current_user} %>
-    </div>  
-    
+    </div>
+
     <!--投稿された本一覧画面-->
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
@@ -13,11 +13,11 @@
         <thred>
           <tr>
             <th></th>
-            <th><strong>Title</strong></th>
-            <th><strong>Opinion</strong></th>
+            <th>Title</th>
+            <th>Opinion</th>
           </tr>
         </thred>
-    
+
         <tbody>
           <% @books.each do |book| %>
           <tr>
