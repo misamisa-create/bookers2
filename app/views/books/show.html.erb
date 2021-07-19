@@ -35,7 +35,8 @@
             <td>
               <!--以下に編集、削除のリンク-->
               <% if @show_book.user == current_user %>
-                <%= link_to "削除",book_path(@show_book),method: :delete %>
+                <%= link_to "Edit",edit_book_path(@show_book),class:'btn btn-sm btn-success' %>
+                <%= link_to "Destroy",book_path(@show_book),method: :delete,class:'btn btn-sm btn-danger' %>
               <% end %>
             </td>
           </tr>

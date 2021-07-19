@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   end
 
   def edit
-
+    @show_book=Book.find(params[:id])
   end
 
   def create
@@ -30,6 +30,9 @@ class BooksController < ApplicationController
   end
 
   def update
+    @show_book=Book.find(params[:id])
+    @show_book.update(book_params)
+    redirect_to book_path(@show_book.id)
   end
 
   private
