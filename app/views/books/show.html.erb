@@ -3,7 +3,7 @@
   <div class="row">
     <!--新規投稿用画面は_listファイル-->
     <div class="col-md-3">
-      <%= render'books/list',book:@book %>
+      <%= render partial:'books/list',locals:{book:@book,user:current_user} %>
     </div>
 
     <!--投稿された本一覧画面-->
