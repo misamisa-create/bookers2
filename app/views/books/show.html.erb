@@ -13,7 +13,7 @@
         <tbody>
           <tr>
             <td>
-              <%= attachment_image_tag @show_book.user,:profile_image,:fill,100,100,fallback:"NoImage.jpg",size:'100x100' %><br />
+              <%= attachment_image_tag @show_book.user,:profile_image,:fill,100,100,fallback:"NoImage.jpg",size:'40x40' %><br />
               <%=link_to @show_book.user.name,user_path(@show_book.user) %>
             </td>
             <td>
