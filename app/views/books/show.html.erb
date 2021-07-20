@@ -1,7 +1,6 @@
 
 <div class="container px-5 px-sm-0">
   <div class="row">
-    <!--新規投稿用画面は_listファイル-->
     <div class="col-md-3">
       <%= render partial:'books/list',locals:{book:@book,user:current_user} %>
     </div>
@@ -20,7 +19,7 @@
               <%= link_to @show_book.title,book_path(@show_book) %>
             </td>
             <td>
-              <%= @show_book.opinion %>
+              <%= @show_book.body %>
             </td>
             <td>
               <% if @show_book.user == current_user %>
@@ -28,7 +27,7 @@
                 <%= link_to "Edit",edit_book_path(@show_book),class:'btn btn-sm btn-success' %>
               </td>
               <td>
-                <%= link_to "Destroy",book_path(@show_book),method: :delete,class:'btn btn-sm btn-danger' %>
+                <%= link_to "Destroy",book_path(@show_book),method: :delete,class:'btn btn-sm btn-danger',data:{confirm:'本当に消しますか？'} %>
               </td>
               <% end %>
             </td>

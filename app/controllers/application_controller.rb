@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!,except: [:top]
+  before_action :authenticate_user!,except: [:top,:about]
   before_action :configue_permitted_parameters,if: :devise_controller?
   # フラッシュメッセージ
   add_flash_types :success, :info, :warning, :danger
