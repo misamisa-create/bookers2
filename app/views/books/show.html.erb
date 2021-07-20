@@ -2,7 +2,8 @@
 <div class="container px-5 px-sm-0">
   <div class="row">
     <div class="col-md-3">
-      <%= render partial:'books/list',locals:{book:@book,user:current_user} %>
+      <!--ここを直す-->
+      <%= render 'books/list',book:@book,user:@user %>
     </div>
 
     <!--投稿された本一覧画面-->
@@ -12,7 +13,7 @@
         <tbody>
           <tr>
             <td>
-              <%= attachment_image_tag @show_book.user,:profile_image,:fill,100,100,fallback:"no_image.jpg",size:'100x100' %><br />
+              <%= attachment_image_tag @show_book.user,:profile_image,:fill,100,100,fallback:"NoImage.jpg",size:'100x100' %><br />
               <%=link_to @show_book.user.name,user_path(@show_book.user) %>
             </td>
             <td>
