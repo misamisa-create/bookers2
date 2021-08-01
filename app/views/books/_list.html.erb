@@ -13,6 +13,7 @@
         <th><%= user.introduction %></th>
       </tr>
       <!--フォロー数表示-->
+
       <tr>
         <th>follows</th>
         <th></th>
@@ -21,6 +22,11 @@
         <th>followers</th>
         <th></th>
       </tr>
+      <!--コピペ-->
+      <tr>
+        <th><%= render 'relationships/follow_button', user: user %></th>
+      </tr>
+
 
     </tbody>
   </table>

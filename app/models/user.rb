@@ -6,20 +6,24 @@ class User < ApplicationRecord
   has_many :books,dependent: :destroy
   attachment :profile_image
 
-  has_many :reverse_of_relationships,class_name:"Relationship",foreign_key:"followed_id",dependent: :destroy
-  has_many :followers,through: :reverse_of_relationship,source: :follower
-
   has_many :relationships,class_name:"Relationship",foreign_key:"follower_id",dependent: :destroy
   has_many :followings,through: :relationships,source: :followed
 
-  def follow(user_id)
-    relationships.create(followed_id:user_id)
+  has_many :reverse_of_relationships,class_name:"Relationship",foreign_key:"followed_id",dependent: :destroy
+  has_many :followers,through: :reverse_of_relationships,source: :follower
+
+  # どのidからどのidをとってくるか
+  def follow(other_user)
+    unless self == other_user
+      self.relationships.find_or_create_by(followed_id:other_user.id)
+    end
   end
-  def unfollow(user_id)
-    relationships.find_by(followed_id:user_id).destroy
+  def unfollow(other_user)
+    relationship=self.relationships.find_by(followed_id:other_user.id)
+    relationship.destroy if relationship
   end
-  def following?(user)
-    followings.include?(user)
+  def following?(other_user)
+    self.followings.include?(other_user)
   end
 
   validates :name,uniqueness:true,length:{ in:2..20 }
